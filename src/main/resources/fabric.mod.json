@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "debugguiscale",
+  "version": "${version}",
+  "name": "DebugGUIScale",
+  "description": "Allows players to customize the F3 screen scaling separately from the built-in GUI Scale",
+  "authors": [],
+  "contact": {},
+  "license": "GPL-3.0",
+  "icon": "assets/debugguiscale/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.aerohide.debugguiscale.client.DebugguiscaleClient"
+    ],
+    "main": [
+      "com.aerohide.debugguiscale.Debugguiscale"
+    ]
+  },
+  "mixins": [
+    "debugguiscale.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_version}"
+  }
+}
