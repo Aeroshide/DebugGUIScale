@@ -1,5 +1,6 @@
-package com.aerohide.debugguiscale.mixins;
+package com.aeroshide.debugguiscale.mixins;
 
+import com.aeroshide.debugguiscale.DebugguiscaleClient;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.DebugHud;
@@ -10,19 +11,20 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
 
+import static com.aeroshide.debugguiscale.DebugguiscaleClient.scale;
+
 @Mixin(DebugHud.class)
 abstract class DebugHudMixin {
 
     @Inject(method = "drawText", at = @At("HEAD"))
     private void beforeTextRendering(DrawContext context, List<String> text, boolean left, CallbackInfo ci) {
-        float scale = 0.5f;
         context.getMatrices().push();
-        context.getMatrices().scale(scale, scale, 0.0F);
+        context.getMatrices().scale(scale.floatValue(), scale.floatValue(), 0.0F);
     }
 
     @ModifyExpressionValue(method = "drawText", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;getScaledWindowWidth()I"))
     private int getReadWidth(int original) {
-        return (int) (original / 0.5f);
+        return (int) (original / scale);
     }
 
     @Inject(method = "drawText", at = @At("TAIL"))
