@@ -16,10 +16,10 @@ import static com.aeroshide.debugguiscale.DebugguiscaleClient.scale;
 abstract class DebugHudMixin {
     @WrapMethod(method = "drawText")
     private void wrapTextRendering(DrawContext context, List<String> text, boolean left, Operation<Void> original) {
-        context.getMatrices().push();
+        context.getMatrices().pushMatrix();
         context.getMatrices().scale(scale.floatValue(), scale.floatValue(), 0.0F);
         original.call(context, text, left);
-        context.getMatrices().pop();
+        context.getMatrices().popMatrix();
     }
 
     @ModifyExpressionValue(method = "drawText", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;getScaledWindowWidth()I"))
