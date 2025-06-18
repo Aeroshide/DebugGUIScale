@@ -17,7 +17,7 @@ abstract class DebugHudMixin {
     @WrapMethod(method = "drawText")
     private void wrapTextRendering(DrawContext context, List<String> text, boolean left, Operation<Void> original) {
         context.getMatrices().pushMatrix();
-        context.getMatrices().scale(scale.floatValue(), scale.floatValue(), 0.0F);
+        context.getMatrices().scale(scale.floatValue(), scale.floatValue());
         original.call(context, text, left);
         context.getMatrices().popMatrix();
     }
