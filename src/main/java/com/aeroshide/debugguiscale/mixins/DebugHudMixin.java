@@ -18,8 +18,8 @@ abstract class DebugHudMixin {
 
     @Inject(method = "drawText", at = @At("HEAD"))
     private void beforeTextRendering(DrawContext context, List<String> text, boolean left, CallbackInfo ci) {
-        context.getMatrices().push();
-        context.getMatrices().scale(scale.floatValue(), scale.floatValue(), 0.0F);
+        context.getMatrices().pushMatrix();
+        context.getMatrices().scale(scale.floatValue(), scale.floatValue());
     }
 
     @ModifyExpressionValue(method = "drawText", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;getScaledWindowWidth()I"))
@@ -29,6 +29,6 @@ abstract class DebugHudMixin {
 
     @Inject(method = "drawText", at = @At("TAIL"))
     private void afterTextRendering(DrawContext context, List<String> text, boolean left, CallbackInfo ci) {
-        context.getMatrices().pop();
+        context.getMatrices().popMatrix();
     }
 }
