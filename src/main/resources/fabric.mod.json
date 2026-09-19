@@ -22,7 +22,7 @@
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
-    "minecraft": ">=1.21",
-    "rose_bush": ">=1.2"
+    "minecraft": ">=${minecraft_version}",
+    "rose_bush": ">=${roselib_version}"
   }
 }

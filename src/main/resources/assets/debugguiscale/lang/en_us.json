@@ -1,6 +1,11 @@
 {
   "debugguiscale.configScreen": "DebugGUIScale Options",
-  "debugguiscale.scale": "Scale Factor",
+  "debugguiscale.scale": "Overlay Scale Factor",
+  "debugguiscale.altScale": "Outside Overlay Scale Factor",
+  "debugguiscale.scaleVanilla": "Debug GUI Scale",
+  "debugguiscale.altScaleVanilla": "\"Always\" Overlay Scale",
+  "debugguiscale.scaleVanillaDESC": "The amount of scaling of the Debug Overlay",
+  "debugguiscale.altScaleVanillaDESC": "The amount of scaling of the things that you have set to be \"Always Display\"",
   "debugguiscale.save": "Save Changes",
   "debugguiscale.discard": "Discard"
 }
